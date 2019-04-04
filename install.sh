@@ -8,7 +8,7 @@ make
 make install
 
 cd
-curl http://zlib.net/zlib-1.2.11.tar.gz -o zlib-1.2.11.tar.gz
+curl https://datapacket.dl.sourceforge.net/project/libpng/zlib/1.2.11/zlib-1.2.11.tar.gz -o zlib-1.2.11.tar.gz
 tar -zxf zlib-1.2.11.tar.gz
 cd zlib-1.2.11
 ./configure

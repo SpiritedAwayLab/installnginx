@@ -15,13 +15,6 @@ cd zlib-1.2.11
 make
 make install
 
-cd
-wget http://www.openssl.org/source/openssl-1.1.1b.tar.gz
-tar -zxf openssl-1.1.1b.tar.gz
-cd openssl-1.1.1b
-./Configure darwin64-x86_64-cc --prefix=/usr
-make
-make install
 
 cd
 wget https://nginx.org/download/nginx-1.14.2.tar.gz 

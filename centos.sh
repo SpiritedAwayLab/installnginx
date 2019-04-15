@@ -1,4 +1,4 @@
-yum check-update
+yum update -y
 yum install build-essential libssl-dev -y
 curl ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.42.tar.gz -o pcre-8.42.tar.gz
 tar -zxf pcre-8.42.tar.gz

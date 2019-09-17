@@ -26,6 +26,6 @@ make
 make install
 cp /usr/local/nginx/nginx /usr/bin
 
-echo "stream {server {listen 9999;proxy_pass ae-pool.beepool.org:9505;}}" >> /usr/local/nginx/nginx.conf
+
 
 nginx

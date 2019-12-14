@@ -1,6 +1,6 @@
 apt-get update
 apt-get install build-essential libssl-dev -y
-wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.42.tar.gz
+wget https://nchc.dl.sourceforge.net/project/pcre/pcre/8.42/pcre-8.42.tar.gz
 tar -zxf pcre-8.42.tar.gz
 cd pcre-8.42
 ./configure

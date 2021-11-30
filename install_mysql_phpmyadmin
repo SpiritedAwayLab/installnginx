@@ -1,34 +1,4 @@
 #!/bin/bash
-sudo apt install php libapache2-mod-php php-mysql
+apt update
+apt install mysql-server
 sudo apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl
-sudo mysql
-mysql -u root -p
-UNINSTALL COMPONENT "file://component_validate_password";
-exit
-sudo apt install phpmyadmin
-sudo mysql -u root -p
-INSTALL COMPONENT "file://component_validate_password";
-exit
-sudo phpenmod mbstring
-sudo systemctl restart apache2
-sudo mysql
-SELECT user,authentication_string,plugin,host FROM mysql.user;
-ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'GGAABB';
-ELECT user,authentication_string,plugin,host FROM mysql.user;
-exit
-firefox https://localhost/phpmyadmin
-sudo nano /etc/apache2/conf-available/phpmyadmin.conf
-# Add an AllowOverride All directive within the <Directory /usr/share/phpmyadmin> section of the configuration file, like this:
-# <Directory /usr/share/phpmyadmin>
-# Options FollowSymLinks
-# DirectoryIndex index.php
-#AllowOverride All
-sudo systemctl restart apache2
-sudo nano /usr/share/phpmyadmin/.htaccess
-# Within this file, enter the following information:
-# AuthType Basic
-# AuthName "Restricted Files"
-# AuthUserFile /etc/phpmyadmin/.htpasswd
-# Require valid-user
-GRANT ALL ON *.* TO 'root'@'localhost';
-sudo htpasswd -c /etc/phpmyadmin/.htpasswd root

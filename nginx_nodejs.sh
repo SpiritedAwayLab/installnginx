@@ -28,8 +28,8 @@ cp /usr/local/nginx/nginx /usr/bin
 openssl ecparam -out /etc/ssl/private/ssl-nginx.key -name prime256v1 -genkey
 openssl req -new -days 3650 -nodes -x509 -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com" -key /etc/ssl/private/ssl-nginx.key -out /etc/ssl/certs/ssl-nginx.cert
 #nginx
-apt install nodejs
-apt install npm
+apt install nodejs -y
+apt install npm -y
 
 echo "fs.file-max = 100000" >> /etc/sysctl.conf
 sudo sysctl -p

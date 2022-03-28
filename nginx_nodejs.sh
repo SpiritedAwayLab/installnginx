@@ -8,7 +8,7 @@ make
 make install
 
 cd
-wget http://zlib.net/zlib-1.2.11.tar.gz
+wget http://zlib.net/zlib-1.2.12.tar.gz
 tar -zxf zlib-1.2.11.tar.gz
 cd zlib-1.2.11
 ./configure

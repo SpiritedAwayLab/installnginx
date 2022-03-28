@@ -8,9 +8,9 @@ make
 make install
 
 cd
-wget https://github.com/SpiritedAwayLab/installnginx/blob/master/zlib-1.2.11.tar.gz
-tar -zxf zlib-1.2.11.tar.gz
-cd zlib-1.2.11
+wget http://zlib.net/zlib-1.2.12.tar.gz
+tar -zxf zlib-1.2.12.tar.gz
+cd zlib-1.2.12
 ./configure
 make
 make install

@@ -1,0 +1,13 @@
+#nginx
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash  
+source ~/.bashrc
+nvm install v14
+ 
+echo "fs.file-max = 100000" >> /etc/sysctl.conf
+sudo sysctl -p
+echo "root soft     nproc          100000" >> /etc/security/limits.conf
+echo "root hard     nproc          100000" >> /etc/security/limits.conf
+echo "root soft     nofile         100000" >> /etc/security/limits.conf
+echo "root hard     nofile         100000" >> /etc/security/limits.conf
+echo "session required pam_limits.so" >> /etc/pam.d/common-session  
+ulimit -n

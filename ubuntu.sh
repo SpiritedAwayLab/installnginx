@@ -1,6 +1,6 @@
 apt-get update
 apt-get install build-essential libssl-dev -y
-wget https://github.com/SpiritedAwayLab/installnginx/blob/master/pcre-8.42.tar.gz
+wget  https://github.com/SpiritedAwayLab/installnginx/blob/master/pcre-8.42.tar.gz  
 tar -zxf pcre-8.42.tar.gz
 cd pcre-8.42
 ./configure

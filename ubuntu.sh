@@ -1,6 +1,6 @@
 apt-get update
 apt-get install build-essential libssl-dev -y
-wget  https://github.com/SpiritedAwayLab/installnginx/blob/master/pcre-8.42.tar.gz  
+wget  https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/pcre-8.42.tar.gz  
 tar -zxf pcre-8.42.tar.gz
 cd pcre-8.42
 ./configure
@@ -8,7 +8,7 @@ make
 make install
 
 cd
-wget https://github.com/SpiritedAwayLab/installnginx/blob/master/zlib-1.2.11.tar.gz
+wget https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/zlib-1.2.11.tar.gz
 tar -zxf zlib-1.2.11.tar.gz
 cd zlib-1.2.11
 ./configure
@@ -16,7 +16,7 @@ make
 make install
 
 cd
-wget https://github.com/SpiritedAwayLab/installnginx/blob/master/nginx-1.21.4.tar.gz
+wget https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/nginx-1.21.4.tar.gz
 tar zxf nginx-1.21.4.tar.gz
 cd nginx-1.21.4
 ./configure --sbin-path=/usr/local/nginx/nginx --conf-path=/usr/local/nginx/nginx.conf --pid-path=/usr/local/nginx/nginx.pid --with-pcre=../pcre-8.42 --with-zlib=../zlib-1.2.11 --with-stream --with-stream_ssl_module --with-stream_ssl_preread_module

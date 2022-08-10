@@ -34,31 +34,4 @@ cp /usr/local/nginx/nginx /usr/bin
 #nginx
 
 useradd nginx -s /sbin/nologin -M
-systemctl stop apache2.service
-rm /etc/systemd/system/multi-user.target.wants/apache2.service
-
-
-cat >/etc/systemd/system/nginx.service <<EOF
-[Unit]
-Description=The NGINX HTTP and reverse proxy server
-After=syslog.target network-online.target remote-fs.target nss-lookup.target
-Wants=network-online.target
-
-[Service]
-Type=forking
-PIDFile=/usr/local/nginx/nginx.pid
-ExecStartPre=/usr/local/nginx/nginx -t
-ExecStart=/usr/local/nginx/nginx
-ExecReload=/usr/local/nginx/nginx -s reload
-ExecStop=/bin/kill -s QUIT $MAINPID
-PrivateTmp=true
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-systemctl daemon-reload
-systemctl enable nginx.service
-systemctl start nginx.service
-
 

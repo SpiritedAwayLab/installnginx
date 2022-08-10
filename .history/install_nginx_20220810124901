@@ -34,11 +34,9 @@ cp /usr/local/nginx/nginx /usr/bin
 #nginx
 
 useradd nginx -s /sbin/nologin -M
-systemctl stop apache2.service
-rm /etc/systemd/system/multi-user.target.wants/apache2.service
 
+cat > /etc/systemd/system/nginx.service <<EOF
 
-cat >/etc/systemd/system/nginx.service <<EOF
 [Unit]
 Description=The NGINX HTTP and reverse proxy server
 After=syslog.target network-online.target remote-fs.target nss-lookup.target
@@ -55,6 +53,7 @@ PrivateTmp=true
 
 [Install]
 WantedBy=multi-user.target
+
 EOF
 
 systemctl daemon-reload

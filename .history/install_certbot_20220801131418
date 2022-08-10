@@ -1,0 +1,14 @@
+ln -s /usr/local/nginx /etc/nginx
+apt install snapd -y
+sudo snap install core
+sudo snap refresh core
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo certbot certonly --nginx
+#write out current crontab
+crontab -l >mycron
+#echo new cron into cron file
+echo "00 00 01 * * sudo certbot renew --dry-run" >>mycron
+#install new cron file
+crontab mycron
+rm mycron

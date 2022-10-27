@@ -6,3 +6,5 @@ sudo mysql
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 exit;
 sudo apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl -y
+apt install php7.4-fpm
+service php7.4-fpm start

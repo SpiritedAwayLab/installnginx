@@ -1,4 +1,0 @@
-#!/bin/bash
-apt update
-apt install mysql-server
-sudo apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl

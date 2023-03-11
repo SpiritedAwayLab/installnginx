@@ -1,0 +1,40 @@
+sudo apt update && sudo apt upgrade -y
+sudo apt install curl tar wget git jq build-essential -y
+sudo apt install make clang pkg-config libssl-dev cmake gcc -y
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -sSf | sh -s -- -y
+source ~/.profile
+source ~/.cargo/env
+cargo install sccache
+sudo apt-get install protobuf-compiler -y
+cd /root
+git clone https://github.com/fleek-network/ursa.git
+cd ursa
+cargo update -p libp2p-quic --precise 0.7.0-alpha 
+cargo update -p libp2p-webrtc --precise 0.4.0-alpha 
+cargo update -p libp2p-tls --precise 0.1.0-alpha
+make install 
+
+sudo tee /etc/systemd/system/fleekd.service > /dev/null <<EOF
+[Unit]
+Description=Fleek Node
+After=network.target
+[Service]
+User=$USER
+Type=simple
+ExecStart=$(which ursa)
+Restart=on-failure
+LimitNOFILE=65535
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable fleekd
+sudo systemctl restart fleekd
+
+IDENTITY="moniker"
+systemctl stop fleekd
+sed -i.bak -e "s/^identity *=.*/identity = \"${IDENTITY}\"/" $HOME/.ursa/config.toml
+rm /root/.ursa/keystore/default.pem
+sudo systemctl restart fleekd
+echo -e "$HOME/.ursa/keystore/"

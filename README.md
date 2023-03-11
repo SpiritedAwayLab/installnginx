@@ -9,3 +9,5 @@ curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/i
 curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/install_go | bash
 ## aleo
 curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/aleo_install.sh | bash
+## fleek
+curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/fleek | bash

@@ -61,4 +61,6 @@ systemctl daemon-reload
 systemctl enable nginx.service
 systemctl start nginx.service
 
+sed -i '1s/^/user www-data;\n/' /usr/local/nginx/nginx.conf
+
 

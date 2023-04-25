@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Import the public key used by the package management system
+sudo apt-get install gnupg
+curl -fsSL https://pgp.mongodb.com/server-6.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg --dearmor
+
+# Create a list file for MongoDB
+UBUNTU_VERSION=$(lsb_release -sr)
+if [[ "$UBUNTU_VERSION" == "22.04" ]]; then
+  echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee>
+elif [[ "$UBUNTU_VERSION" == "20.04" ]]; then
+  echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" | sudo tee>
+elif [[ "$UBUNTU_VERSION" == "18.04" ]]; then
+  echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/6.0 multiverse" | sudo te>
+elif [[ "$UBUNTU_VERSION" == "16.04" ]]; then
+  echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/6.0 multiverse" | sudo te>
+else
+  echo "Unsupported Ubuntu version"
+  exit 1
+fi
+
+# Reload the local package database
+sudo apt-get update
+
+# Install the latest stable version of MongoDB
+sudo apt-get install -y mongodb-org
+
+# Pin the package at the currently installed version
+echo "mongodb-org hold" | sudo dpkg --set-selections
+echo "mongodb-org-database hold" | sudo dpkg --set-selections
+echo "mongodb-org-server hold" | sudo dpkg --set-selections
+echo "mongodb-mongosh hold" | sudo dpkg --set-selections
+echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
+echo "mongodb-org-tools hold" | sudo dpkg --set-selections
+
+# Start MongoDB using the init system
+sudo systemctl start mongod

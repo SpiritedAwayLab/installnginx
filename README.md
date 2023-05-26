@@ -5,6 +5,10 @@ curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/i
 curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/install_nodejs | bash
 ## mysql & phpmyadmin
 curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/install_mysql_phpmyadmin | bash
+## mongodb
+curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/install_mongodb | bash
+## certbot
+curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/install_certbot | bash
 ## go lang
 curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/install_go | bash
 ## aleo

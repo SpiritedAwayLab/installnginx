@@ -15,3 +15,5 @@ curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/i
 curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/aleo_install.sh | bash
 ## fleek
 curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/fleek | bash
+## conda
+curl https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh --output anaconda.sh

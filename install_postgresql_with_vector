@@ -7,3 +7,38 @@ sudo curl -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc --fail htt
 sudo sh -c 'echo "deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 sudo apt update
 sudo apt install postgresql-12-pgvector -y
+
+#!/bin/bash
+
+# Prompt the user for a new username and password
+read -p "Enter new PostgreSQL username: " pg_username
+read -sp "Enter new PostgreSQL password: " pg_password
+echo
+
+# Create the PostgreSQL user
+sudo -u postgres psql -c "CREATE USER $pg_username WITH PASSWORD '$pg_password';"
+
+# Optional: Grant privileges to the user, such as CREATEDB or SUPERUSER
+# sudo -u postgres psql -c "ALTER USER $pg_username WITH CREATEDB;"
+# sudo -u postgres psql -c "ALTER USER $pg_username WITH SUPERUSER;"
+
+echo "User $pg_username created successfully."
+
+#!/bin/bash
+
+# PostgreSQL 配置文件的路径（可能需要根据您的安装进行调整）
+PG_CONF="/etc/postgresql/12/main/postgresql.conf"
+PG_HBA="/etc/postgresql/12/main/pg_hba.conf"
+
+# 修改 postgresql.conf 以监听所有地址
+sudo sed -i "s/#listen_addresses = 'localhost'/listen_addresses = '*'/" $PG_CONF
+
+# 添加规则到 pg_hba.conf 以允许远程连接
+# 注意: 这里允许所有 IP 地址 (0.0.0.0/0) 以 md5 方式验证
+# 根据您的需求调整 CIDR 地址
+echo "host    all             all             0.0.0.0/0            md5" | sudo tee -a $PG_HBA
+
+# 重启 PostgreSQL 服务以应用更改
+sudo systemctl restart postgresql
+
+echo "PostgreSQL 已配置为允许远程连接。"

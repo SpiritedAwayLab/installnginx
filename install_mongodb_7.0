@@ -31,5 +31,24 @@ echo "mongodb-mongosh hold" | sudo dpkg --set-selections
 echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
 echo "mongodb-org-tools hold" | sudo dpkg --set-selections
 
-# Start MongoDB using the init system
+# 连接到MongoDB并创建用户
+mongosh <<EOF
+use admin
+db.createUser({
+  user: 'root',
+  pwd: 'Cc123456+++',
+  roles: [{ role: 'root', db: 'admin' }]
+})
+EOF
+
+# 修改MongoDB配置文件以启用授权
+# 注意：根据你的MongoDB安装位置和配置文件路径，以下命令可能需要调整
+echo -e "security:\n  authorization: enabled" >> /etc/mongod.conf
+
+# 重启MongoDB服务
+# 注意：重启命令取决于你的操作系统和MongoDB的安装方式
 sudo systemctl start mongod
+
+echo "用户已创建并且授权模式已启用"
+
+ 

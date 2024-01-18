@@ -8,3 +8,4 @@ chmod +x ./Anaconda3-2023.09-0-Linux-x86_64.sh
 
 # 运行安装脚本
 bash ./Anaconda3-2023.09-0-Linux-x86_64.sh -b
+

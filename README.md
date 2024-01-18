@@ -16,4 +16,4 @@ curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/a
 ## fleek
 curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/fleek | bash
 ## conda
-curl -o- https://github.com/SpiritedAwayLab/installnginx/blob/master/install_python_conda | bash
+curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/install_python_conda | bash

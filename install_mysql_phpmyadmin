@@ -1,10 +1,26 @@
 #!/bin/bash
-apt update
-apt install mysql-server -y
+
+# 更新软件包列表并安装 MySQL 服务器
+sudo apt update
+sudo apt install mysql-server -y
+
+# 启动 MySQL 服务
 sudo systemctl start mysql.service
-sudo mysql
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+
+# 更改 MySQL root 用户密码
+MYSQL_PWD='Cc123456789+++' # 设置或传递密码
+sudo mysql <<EOF
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_PWD';
 exit;
+EOF
+# 安装 phpMyAdmin 和所需的 PHP 扩展
 sudo apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl -y
-apt install php8.1-fpm
-service php8.1-fpm start
+
+# 获取当前安装的 PHP 主版本和次版本
+PHP_VERSION=$(php -r 'echo PHP_MAJOR_VERSION.".".PHP_MINOR_VERSION;')
+
+# 安装对应版本的 PHP-FPM
+sudo apt install "php${PHP_VERSION}-fpm" -y
+
+# 启动 PHP-FPM 服务
+sudo service "php${PHP_VERSION}-fpm" start

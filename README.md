@@ -5,8 +5,8 @@ curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/i
 curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/install_nodejs | bash
 ## mysql & phpmyadmin
 curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/install_mysql_phpmyadmin | bash
-## mongodb
-curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/install_mongodb | bash
+## mongodb_7.0
+curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/install_mongodb_7.0 | bash
 ## certbot
 curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/install_certbot | bash
 ## go lang

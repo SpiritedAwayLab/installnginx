@@ -36,7 +36,7 @@ mongosh <<EOF
 use admin
 db.createUser({
   user: 'root',
-  pwd: 'Cc123456+++',
+  pwd: 'yourpassword',
   roles: [{ role: 'root', db: 'admin' }]
 })
 EOF

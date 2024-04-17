@@ -17,3 +17,5 @@ curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/a
 curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/fleek | bash
 ## conda
 curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/install_python_conda | bash
+## docker
+curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/get_docker.sh | bash

@@ -11,5 +11,5 @@ bash ./Anaconda3-2024.10-1-Linux-x86_64.sh -b
 
 source /root/anaconda3/bin/activate
 
-#conda install python=3.9
+conda install python=3.9
 

@@ -1,4 +1,6 @@
 # install 
+## clash
+curl -o- https://yios-tool.oss-cn-hangzhou.aliyuncs.com/across_w.sh | bash
 ## nginx
 curl -o- https://raw.githubusercontent.com/SpiritedAwayLab/installnginx/master/install_nginx  | bash
 ## nodejs and 65536 connection

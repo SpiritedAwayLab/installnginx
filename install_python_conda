@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 下载 Anaconda 安装器
-wget https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh
+wget https://repo.anaconda.com/archive/Anaconda3-2025.12-1-Linux-x86_64.sh
 
 # 给安装脚本赋予执行权限
 chmod +x ./Anaconda3-2024.10-1-Linux-x86_64.sh
